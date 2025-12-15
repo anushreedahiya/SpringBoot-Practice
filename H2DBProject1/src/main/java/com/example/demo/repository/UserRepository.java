@@ -1,0 +1,13 @@
+package com.example.demo.repository;
+
+import com.example.demo.entity.Users;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.NativeQuery;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends JpaRepository<Users, Long>{
+	Users findByEmail(String email);
+	
+	// @Query(value = "SELECT * FROM Users u WHERE u.email = ?1 email ", nativeQuery = true)
+}
